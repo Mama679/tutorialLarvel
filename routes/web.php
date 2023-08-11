@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\PruebasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,8 @@ Route::get('clientes/{nombre}', function($nombre){
 	//return "Mostrando el cliente $nombre";
     return view('clientes.index')->with(['nombre' => $nombre]);
 })->where(array('nombre' => '[a-zA-Z]+'));
+
+Route::match(['get','post'],'input',[PruebasController::class,'recibir']);
 
 //Rutas conntroladores
 //Route::get('tienda/productos/{id}','TiendaController@producto');
